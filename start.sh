@@ -1,0 +1,3 @@
+export SECRET_KEY=DHBHFBHDBFJDNFKDGFJHV24242
+
+python3.5 manage.py server
