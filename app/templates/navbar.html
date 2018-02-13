@@ -1,12 +1,12 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-info">
-     <h5 class="my-0 mr-md-auto font-weight-normal text-light">OneMinutePitch</h5>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-black">
+     <h5 class="my-0 mr-md-auto font-weight-normal text-success">OneMinutePitch</h5>
      <nav class="my-2 my-md-0 mr-md-3">
-           <ul class="nav navbar-nav navbar-right">
+           <ul class="nav navbar-nav navbar-right">success
                  {% if current_user.is_authenticated %}
                  <li>{{current_user.username}}</li>
                  <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
                  {% else %}
-                 <li><a class="btn btn-outline-primary text-light" href="{{url_for('auth.login')}}">Sign in</a></li>
+                 <li><a class="btn btn-outline- text-light" href="{{url_for('auth.login')}}">Sign in</a></li>
                  {%endif%}
            </ul>
      </nav>
