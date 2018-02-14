@@ -29,24 +29,20 @@ class User(UserMixin, db.Model):
     # relationship between user and comment class
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
 
-
     @property
     def password(self):
-            raise AttributeError('You cannot read the password attribute')
-
+        raise AttributeError('You cannot read the password attribute')
 
     @password.setter
     def password(self, password):
 
             self.password_hash = generate_password_hash(password)
 
-
     def verify_password(self, password):
-            return check_password_hash(self.password_hash, password)
-
+        return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-            return 'Pitch {}'.format(self.username)
+        return 'Pitch {}'.format(self.username)
 
 
 class Pitch(db.Model):
@@ -60,14 +56,12 @@ class Pitch(db.Model):
 # relationship between pitch and line class
     lines = db.relationship('Line', backref='pitch', lazy='dynamic')
 
-
-def save_pitches(self):
+    def save_pitches(self):
             db.session.add(self)
             db.session.commit()
 
-
-@classmethod
-def get_pitches(cls):
+    @classmethod
+    def get_pitches(cls):
             pitches = Pitch.query.all()
             return pitches
 
