@@ -1,5 +1,5 @@
 from . import main
-from flask import render_template, request, redirect, url_for, abort
+from flask import render_template, redirect, url_for
 from ..models import User, Pitch
 from flask_login import login_required
 from .form import PitchForm
@@ -7,7 +7,7 @@ from .form import PitchForm
 
 @main.route('/')
 def index():
-    pitches = 'hello world'
+    pitches = Pitch.query.all()
     return render_template('index.html', pitches=pitches)
 
 
@@ -27,4 +27,4 @@ def new_pitch():
         return redirect(url_for('.index'))
 
     title = 'New Pitch'
-    return render_template('new_pitch.html', pitch_form = form)
+    return render_template('new_pitch.html', title=title, pitch_form=form)
