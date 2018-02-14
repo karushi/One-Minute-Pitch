@@ -18,9 +18,11 @@
 
       {% endfor %}
       <!-- Login form  -->
+       <div>
 
       {{ wtf.quick_form(login_form) }}
-
+         <a href="{{url_for('auth.register')}}"style="display:inline-block">Signup here</a>
+        </div>
     </div>
 
     <div class="col-md-2"> </div>
